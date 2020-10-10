@@ -31,7 +31,7 @@ function doSomething3 () {
         for (let index = 0; index < 5; index++) {
             quofid = 0
             info.setScore(0)
-            npc = sprites.create(img`
+            npc2 = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -49,7 +49,7 @@ function doSomething3 () {
                 . . . 3 3 3 3 3 3 3 . . . . . . 
                 . . . . 3 . . . 3 . . . . . . . 
                 `, SpriteKind.npc)
-            npc.vx = randint(45, 80)
+            npc2.vx = randint(45, 80)
         }
     }
     if (rond == 4) {
@@ -57,7 +57,7 @@ function doSomething3 () {
         for (let index = 0; index < 2; index++) {
             quofid = 0
             info.setScore(0)
-            npc = sprites.create(img`
+            npc2 = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -75,7 +75,7 @@ function doSomething3 () {
                 . . . 3 3 3 3 3 3 3 . . . . . . 
                 . . . . 3 . . . 3 . . . . . . . 
                 `, SpriteKind.npc)
-            npc.vx = randint(45, 80)
+            npc2.vx = randint(45, 80)
         }
     }
     if (rond == 5) {
@@ -83,7 +83,7 @@ function doSomething3 () {
         for (let index = 0; index < 1; index++) {
             quofid = 0
             info.setScore(0)
-            npc = sprites.create(img`
+            npc2 = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -101,7 +101,7 @@ function doSomething3 () {
                 . . . 3 3 3 3 3 3 3 . . . . . . 
                 . . . . 3 . . . 3 . . . . . . . 
                 `, SpriteKind.npc)
-            npc.vx = randint(45, 80)
+            npc2.vx = randint(45, 80)
         }
     }
 }
@@ -143,7 +143,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         tiles.placeOnRandomTile(mySprite, myTiles.tile6)
         tiles.placeOnRandomTile(mySprite, myTiles.tile13)
         for (let index = 0; index < 49; index++) {
-            npc = sprites.create(list1[randint(0, l)], SpriteKind.npc)
+            npc2 = sprites.create(list1[randint(0, l)], SpriteKind.npc)
             text_list = [
             "CatMaster",
             "BatGuy",
@@ -160,13 +160,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             for (let index = 0; index < 1000; index++) {
                 text_list.push("" + randint(0, 9) + randint(0, 9) + randint(0, 9) + randint(0, 9) + randint(0, 9))
             }
-            sprites.setDataString(npc, "name", text_list[randint(0, 30)])
+            sprites.setDataString(npc2, "name", text_list[randint(0, 30)])
             if (Math.percentChance(50)) {
-                sprites.setDataNumber(npc, "r", 1)
+                sprites.setDataNumber(npc2, "r", 1)
             } else {
-                sprites.setDataNumber(npc, "r", -1)
+                sprites.setDataNumber(npc2, "r", -1)
             }
-            tiles.placeOnRandomTile(npc, myTiles.tile6)
+            tiles.placeOnRandomTile(npc2, myTiles.tile6)
             sprites.setDataBoolean(mySprite, "q", false)
         }
         count = 50
@@ -223,7 +223,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
     for (let index = 0; index < 15; index++) {
         quofid = 0
         info.setScore(0)
-        npc = sprites.create(img`
+        npc2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -241,7 +241,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
             . . . 3 3 3 3 3 3 3 . . . . . . 
             . . . . 3 . . . 3 . . . . . . . 
             `, SpriteKind.npc)
-        npc.vx = randint(45, 80)
+        npc2.vx = randint(45, 80)
     }
     scene.cameraFollowSprite(mySprite)
     controller.moveSprite(mySprite, 100, 0)
@@ -251,7 +251,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
         for (let index = 0; index < 5; index++) {
             quofid = 0
             info.setScore(0)
-            npc = sprites.create(img`
+            npc2 = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -269,7 +269,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
                 . . . 3 3 3 3 3 3 3 . . . . . . 
                 . . . . 3 . . . 3 . . . . . . . 
                 `, SpriteKind.npc)
-            npc.vx = randint(45, 80)
+            npc2.vx = randint(45, 80)
         }
     }
     if (rond == 4) {
@@ -277,7 +277,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
         for (let index = 0; index < 2; index++) {
             quofid = 0
             info.setScore(0)
-            npc = sprites.create(img`
+            npc2 = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -295,7 +295,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
                 . . . 3 3 3 3 3 3 3 . . . . . . 
                 . . . . 3 . . . 3 . . . . . . . 
                 `, SpriteKind.npc)
-            npc.vx = randint(45, 80)
+            npc2.vx = randint(45, 80)
         }
     }
     if (rond == 5) {
@@ -303,7 +303,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
         for (let index = 0; index < 1; index++) {
             quofid = 0
             info.setScore(0)
-            npc = sprites.create(img`
+            npc2 = sprites.create(img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
@@ -321,7 +321,7 @@ function doSomething (mySprite: Sprite, mySprite2: Sprite) {
                 . . . 3 3 3 3 3 3 3 . . . . . . 
                 . . . . 3 . . . 3 . . . . . . . 
                 `, SpriteKind.npc)
-            npc.vx = randint(45, 80)
+            npc2.vx = randint(45, 80)
         }
     }
     if (rond == 6) {
@@ -471,10 +471,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let list55: Image[] = []
 let mySprite2: Sprite = null
 let npc12: string[] = []
+let npclist: Image[] = []
+let spetate = false
+let _1 = 0
+let _2 = 0
 let spetate2 = 0
 let level: tiles.WorldMap = null
 let leve2 = 0
-let npc: Sprite = null
+let npc2: Sprite = null
 let quofid = 0
 let rond = 0
 let look = 0
@@ -486,10 +490,8 @@ let list1: Image[] = []
 let picture: Image = null
 let mySprite: Sprite = null
 let count = 0
-let gg = 0
 let _66 = 0
-let _2 = 0
-let _1 = 0
+let gg = 0
 if (blockSettings.exists("list")) {
     info.setScore(0)
 } else {
@@ -1407,9 +1409,7 @@ tiles.loadMap(tiles.createMap(tiles.createTilemap(hex`10001000030303030303030303
 controller.moveSprite(mySprite)
 look = 0
 rond = 1
-let spetate = false
 let sprite_list = sprites.allOfKind(SpriteKind.npc)
-let npclist: Image[] = []
 forever(function () {
     list2 = [
     tiles.createMap(tiles.createTilemap(hex`64000b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000002000002000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010101000002000202000200000000000000000000000000000000000000020200000000020000020000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000002000000000000000000000000000000000000020002000000000200000000000000000400000000000000000000000000000000010101000001010100000000000000000000000000000000000000000101010100010101000000000000000200000000020000000000000000000000000000000000020000010102020202000000000000000004030000000000000000000000050000000002000000000200000000000000000000000101010100000000000000000000000000000000000000000002020202020200000000000000000000000000000000000000000002000000000000020000000000040101010101010101010000010101000000020000000000000001010101010101000002020202000101010000000000000000000000000000000000020000000002000000000000000000000000000000010000000000020000000000000100000000000402020102020202020200000202020000000200000000000000000000000000000002020202020002020200000000000000000000000000000000000200000000020000000002020202020202020200020000000000000000000000000200000000000004020202020202020202000202020200000002000000000200000000000000000002020202020200020202000000000000000000000000000002000002000002000002020202000000000000000000000200000000000000000000000002000000000000040202020202020202020002020202000000000000000002000002020202020202020202020202020202020000000000000000000000000000020000020000020000000000000000000000000000000002000002020202020202020202010000000000000202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020200000000000200000000000000020202020202020202020202020202020202020202020202020202020200`, img`
@@ -1735,15 +1735,15 @@ forever(function () {
     ]
 })
 forever(function () {
-    for (let value of sprites.allOfKind(SpriteKind.Player)) {
-        if (!(sprites.readDataBoolean(value, "q"))) {
-            if (value.tileKindAt(TileDirection.Center, myTiles.tile7)) {
-                value.setFlag(SpriteFlag.Invisible, true)
-                value.setFlag(SpriteFlag.Ghost, true)
-                controller.moveSprite(value)
+    for (let value2 of sprites.allOfKind(SpriteKind.Player)) {
+        if (!(sprites.readDataBoolean(value2, "q"))) {
+            if (value2.tileKindAt(TileDirection.Center, myTiles.tile7)) {
+                value2.setFlag(SpriteFlag.Invisible, true)
+                value2.setFlag(SpriteFlag.Ghost, true)
+                controller.moveSprite(value2)
                 quofid += 1
                 game.splash("qualify")
-                sprites.setDataBoolean(value, "q", true)
+                sprites.setDataBoolean(value2, "q", true)
                 mySprite.ay = 0
                 spetate = true
                 info.changeScoreBy(1)
@@ -1769,17 +1769,17 @@ forever(function () {
                     tiles.placeOnRandomTile(mySprite, myTiles.tile6)
                     tiles.placeOnRandomTile(mySprite, myTiles.tile13)
                     info.setScore(0)
-                    for (let value of npclist) {
+                    for (let value3 of npclist) {
                         quofid = 0
                         info.setScore(0)
-                        npc = sprites.create(value, SpriteKind.npc)
+                        npc2 = sprites.create(value3, SpriteKind.npc)
                         if (Math.percentChance(50)) {
-                            sprites.setDataNumber(npc, "r", 1)
+                            sprites.setDataNumber(npc2, "r", 1)
                         } else {
-                            sprites.setDataNumber(npc, "r", -1)
+                            sprites.setDataNumber(npc2, "r", -1)
                         }
-                        npc.vx = randint(45, 75)
-                        tiles.placeOnRandomTile(npc, myTiles.tile6)
+                        npc2.vx = randint(45, 75)
+                        tiles.placeOnRandomTile(npc2, myTiles.tile6)
                     }
                     npclist = []
                     npc12 = []
@@ -1790,14 +1790,14 @@ forever(function () {
     }
 })
 forever(function () {
-    for (let value of sprites.allOfKind(SpriteKind.npc)) {
-        if (value.tileKindAt(TileDirection.Center, myTiles.tile9)) {
-            value.destroy()
+    for (let value4 of sprites.allOfKind(SpriteKind.npc)) {
+        if (value4.tileKindAt(TileDirection.Center, myTiles.tile9)) {
+            value4.destroy()
             info.changeScoreBy(1)
             if (info.score() == 10) {
-                for (let value of sprites.allOfKind(SpriteKind.npc)) {
-                    npclist.push(value.image)
-                    npc12.push(sprites.readDataString(value, "name"))
+                for (let value5 of sprites.allOfKind(SpriteKind.npc)) {
+                    npclist.push(value5.image)
+                    npc12.push(sprites.readDataString(value5, "name"))
                 }
                 sprites.setDataBoolean(mySprite, "q", false)
                 count = count - 10
@@ -1820,17 +1820,17 @@ forever(function () {
                 tiles.placeOnRandomTile(mySprite, myTiles.tile6)
                 tiles.placeOnRandomTile(mySprite, myTiles.tile13)
                 info.setScore(0)
-                for (let value of npclist) {
+                for (let value6 of npclist) {
                     quofid = 0
                     info.setScore(0)
-                    npc = sprites.create(value, SpriteKind.npc)
-                    npc.vx = randint(45, 75)
-                    sprites.setDataString(npc, "name", npc12.shift())
-                    tiles.placeOnRandomTile(npc, myTiles.tile6)
+                    npc2 = sprites.create(value6, SpriteKind.npc)
+                    npc2.vx = randint(45, 75)
+                    sprites.setDataString(npc2, "name", npc12.shift())
+                    tiles.placeOnRandomTile(npc2, myTiles.tile6)
                     if (Math.percentChance(50)) {
-                        sprites.setDataNumber(npc, "r", 1)
+                        sprites.setDataNumber(npc2, "r", 1)
                     } else {
-                        sprites.setDataNumber(npc, "r", -1)
+                        sprites.setDataNumber(npc2, "r", -1)
                     }
                 }
                 npclist = []
@@ -1847,12 +1847,12 @@ forever(function () {
     }
 })
 forever(function () {
-    for (let value of sprites.allOfKind(SpriteKind.npc)) {
-        if (value.tileKindAt(TileDirection.Center, myTiles.tile7)) {
-            value.destroy()
+    for (let value7 of sprites.allOfKind(SpriteKind.npc)) {
+        if (value7.tileKindAt(TileDirection.Center, myTiles.tile7)) {
+            value7.destroy()
             info.changeScoreBy(1)
-            npclist.push(value.image)
-            npc12.push(sprites.readDataString(value, "name"))
+            npclist.push(value7.image)
+            npc12.push(sprites.readDataString(value7, "name"))
             quofid += 1
             if (quofid == count - 10) {
                 if (sprites.readDataBoolean(mySprite, "q")) {
@@ -1877,18 +1877,18 @@ forever(function () {
                     tiles.placeOnRandomTile(mySprite, myTiles.tile6)
                     tiles.placeOnRandomTile(mySprite, myTiles.tile13)
                     info.setScore(0)
-                    for (let value of npclist) {
+                    for (let value8 of npclist) {
                         quofid = 0
                         info.setScore(0)
-                        npc = sprites.create(value, SpriteKind.npc)
-                        sprites.setDataString(npc, "name", npc12.shift())
+                        npc2 = sprites.create(value8, SpriteKind.npc)
+                        sprites.setDataString(npc2, "name", npc12.shift())
                         if (Math.percentChance(50)) {
-                            sprites.setDataNumber(npc, "r", 1)
+                            sprites.setDataNumber(npc2, "r", 1)
                         } else {
-                            sprites.setDataNumber(npc, "r", -1)
+                            sprites.setDataNumber(npc2, "r", -1)
                         }
-                        npc.vx = randint(45, 75)
-                        tiles.placeOnRandomTile(npc, myTiles.tile6)
+                        npc2.vx = randint(45, 75)
+                        tiles.placeOnRandomTile(npc2, myTiles.tile6)
                     }
                     npclist = []
                     npc12 = []
@@ -1911,22 +1911,22 @@ forever(function () {
 })
 forever(function () {
     if (leve2 == 0) {
-        for (let value of sprites.allOfKind(SpriteKind.npc)) {
-            if (value.isHittingTile(CollisionDirection.Bottom)) {
-                if (value.isHittingTile(CollisionDirection.Left)) {
-                    value.vy += -100
-                } else if (value.isHittingTile(CollisionDirection.Right)) {
-                    value.vy += -100
+        for (let value9 of sprites.allOfKind(SpriteKind.npc)) {
+            if (value9.isHittingTile(CollisionDirection.Bottom)) {
+                if (value9.isHittingTile(CollisionDirection.Left)) {
+                    value9.vy += -100
+                } else if (value9.isHittingTile(CollisionDirection.Right)) {
+                    value9.vy += -100
                 }
             }
         }
     } else if (leve2 >= 2) {
-        for (let value of sprites.allOfKind(SpriteKind.npc)) {
-            if (value.isHittingTile(CollisionDirection.Bottom)) {
-                if (value.isHittingTile(CollisionDirection.Left)) {
-                    value.vy += -100
-                } else if (value.isHittingTile(CollisionDirection.Right)) {
-                    value.vy += -100
+        for (let value10 of sprites.allOfKind(SpriteKind.npc)) {
+            if (value10.isHittingTile(CollisionDirection.Bottom)) {
+                if (value10.isHittingTile(CollisionDirection.Left)) {
+                    value10.vy += -100
+                } else if (value10.isHittingTile(CollisionDirection.Right)) {
+                    value10.vy += -100
                 }
             }
         }
@@ -1934,23 +1934,23 @@ forever(function () {
 })
 forever(function () {
     pause(2000)
-    for (let value of tiles.getTilesByType(myTiles.tile15)) {
+    for (let value11 of tiles.getTilesByType(myTiles.tile15)) {
         mySprite2 = sprites.create(myTiles.tile15, SpriteKind.Enemy)
         mySprite2.vx += -60
-        tiles.placeOnTile(mySprite2, value)
+        tiles.placeOnTile(mySprite2, value11)
     }
-    for (let value of tiles.getTilesByType(myTiles.tile14)) {
+    for (let value12 of tiles.getTilesByType(myTiles.tile14)) {
         mySprite2 = sprites.create(myTiles.tile14, SpriteKind.Enemy)
         mySprite2.vx += -60
-        tiles.placeOnTile(mySprite2, value)
+        tiles.placeOnTile(mySprite2, value12)
     }
 })
 forever(function () {
-    for (let value of sprites.allOfKind(SpriteKind.npc)) {
-        if (value.tileKindAt(TileDirection.Center, myTiles.tile24)) {
-            scene.cameraFollowSprite(value)
-            game.setDialogCursor(value.image)
-            game.showLongText("" + sprites.readDataString(value, "name") + " is the winer", DialogLayout.Center)
+    for (let value13 of sprites.allOfKind(SpriteKind.npc)) {
+        if (value13.tileKindAt(TileDirection.Center, myTiles.tile24)) {
+            scene.cameraFollowSprite(value13)
+            game.setDialogCursor(value13.image)
+            game.showLongText("" + sprites.readDataString(value13, "name") + " is the winer", DialogLayout.Center)
             game.over(false)
         }
     }
@@ -2012,65 +2012,65 @@ forever(function () {
 })
 game.onUpdateInterval(500, function () {
     if (leve2 == 1) {
-        for (let value of sprites.allOfKind(SpriteKind.npc)) {
+        for (let value14 of sprites.allOfKind(SpriteKind.npc)) {
             if (Math.percentChance(50)) {
-                if (sprites.readDataNumber(value, "r") == 1) {
-                    value.vx = randint(90, 130)
-                    value.ay = 100
+                if (sprites.readDataNumber(value14, "r") == 1) {
+                    value14.vx = randint(90, 130)
+                    value14.ay = 100
                 } else {
-                    value.vx = randint(-90, -130)
-                    value.ay = 100
+                    value14.vx = randint(-90, -130)
+                    value14.ay = 100
                 }
             } else {
                 if (Math.percentChance(50)) {
-                    sprites.setDataNumber(value, "r", 2)
+                    sprites.setDataNumber(value14, "r", 2)
                 } else {
-                    sprites.setDataNumber(value, "r", 1)
+                    sprites.setDataNumber(value14, "r", 1)
                 }
             }
         }
     } else if (leve2 == 2) {
-        for (let value of sprites.allOfKind(SpriteKind.npc)) {
-            if (sprites.readDataNumber(value, "r") == 2) {
-                value.vx = randint(90, 130)
-                value.ay = 100
+        for (let value15 of sprites.allOfKind(SpriteKind.npc)) {
+            if (sprites.readDataNumber(value15, "r") == 2) {
+                value15.vx = randint(90, 130)
+                value15.ay = 100
             } else {
-                value.vx = randint(-90, -130)
-                value.ay = 100
+                value15.vx = randint(-90, -130)
+                value15.ay = 100
             }
-            if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value), CollisionDirection.Left), CollisionDirection.Bottom), myTiles.transparency16)) {
-                sprites.setDataNumber(value, "r", 1)
-            } else if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value), CollisionDirection.Right), CollisionDirection.Bottom), myTiles.transparency16)) {
-                sprites.setDataNumber(value, "r", -1)
+            if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value15), CollisionDirection.Left), CollisionDirection.Bottom), myTiles.transparency16)) {
+                sprites.setDataNumber(value15, "r", 1)
+            } else if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value15), CollisionDirection.Right), CollisionDirection.Bottom), myTiles.transparency16)) {
+                sprites.setDataNumber(value15, "r", -1)
             }
         }
     } else if (leve2 == 5) {
-        for (let value of sprites.allOfKind(SpriteKind.npc)) {
+        for (let value16 of sprites.allOfKind(SpriteKind.npc)) {
             if (Math.percentChance(50)) {
-                if (sprites.readDataNumber(value, "r") == 1) {
-                    value.vx = randint(90, 130)
-                    value.ay = 100
+                if (sprites.readDataNumber(value16, "r") == 1) {
+                    value16.vx = randint(90, 130)
+                    value16.ay = 100
                 } else {
-                    value.vx = randint(-90, -130)
-                    value.ay = 100
+                    value16.vx = randint(-90, -130)
+                    value16.ay = 100
                 }
             } else {
                 if (Math.percentChance(50)) {
-                    sprites.setDataNumber(value, "r", 2)
+                    sprites.setDataNumber(value16, "r", 2)
                 } else {
-                    sprites.setDataNumber(value, "r", 1)
+                    sprites.setDataNumber(value16, "r", 1)
                 }
             }
         }
     } else {
-        for (let value of sprites.allOfKind(SpriteKind.npc)) {
-            value.vx = randint(90, 130)
-            value.ay = 100
+        for (let value17 of sprites.allOfKind(SpriteKind.npc)) {
+            value17.vx = randint(90, 130)
+            value17.ay = 100
         }
     }
 })
 game.onUpdateInterval(500, function () {
-    for (let value of tiles.getTilesByType(myTiles.tile12)) {
+    for (let value18 of tiles.getTilesByType(myTiles.tile12)) {
         list55 = [img`
             . . . . . . . e c 7 . . . . . . 
             . . . . e e e c 7 7 e e . . . . 
@@ -2163,13 +2163,13 @@ game.onUpdateInterval(500, function () {
         } else {
             mySprite2.ax += -60
         }
-        if (!(tiles.tileIsWall(tiles.locationInDirection(value, CollisionDirection.Bottom)))) {
+        if (!(tiles.tileIsWall(tiles.locationInDirection(value18, CollisionDirection.Bottom)))) {
             mySprite2.ay += 100
         } else {
             mySprite2.ay += -100
         }
         mySprite2.setFlag(SpriteFlag.BounceOnWall, true)
-        tiles.placeOnTile(mySprite2, value)
+        tiles.placeOnTile(mySprite2, value18)
     }
 })
 game.onUpdateInterval(500, function () {
