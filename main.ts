@@ -354,26 +354,26 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile24, function (sprite, locatio
     game.over(true)
 })
 function doSomething5 () {
-    picture.setPixel(5, 9, 1)
-    picture.setPixel(6, 9, 1)
-    picture.setPixel(7, 9, 1)
-    picture.setPixel(8, 9, 1)
-    picture.setPixel(9, 9, 1)
-    picture.setPixel(5, 6, 1)
-    picture.setPixel(6, 6, 1)
-    picture.setPixel(7, 6, 1)
-    picture.setPixel(8, 6, 1)
-    picture.setPixel(9, 6, 1)
+    picture.setPixel(5, 4, 1)
+    picture.setPixel(6, 4, 1)
+    picture.setPixel(7, 4, 1)
+    picture.setPixel(8, 4, 1)
+    picture.setPixel(9, 4, 1)
     picture.setPixel(5, 7, 1)
-    picture.setPixel(6, 7, 15)
+    picture.setPixel(6, 7, 1)
     picture.setPixel(7, 7, 1)
-    picture.setPixel(8, 7, 15)
+    picture.setPixel(8, 7, 1)
     picture.setPixel(9, 7, 1)
-    picture.setPixel(5, 8, 1)
-    picture.setPixel(6, 8, 15)
-    picture.setPixel(7, 8, 1)
-    picture.setPixel(8, 8, 15)
-    picture.setPixel(9, 8, 1)
+    picture.setPixel(5, 5, 1)
+    picture.setPixel(6, 5, 15)
+    picture.setPixel(7, 5, 1)
+    picture.setPixel(8, 5, 15)
+    picture.setPixel(9, 5, 1)
+    picture.setPixel(5, 6, 1)
+    picture.setPixel(6, 6, 15)
+    picture.setPixel(7, 6, 1)
+    picture.setPixel(8, 6, 15)
+    picture.setPixel(9, 6, 1)
 }
 sprites.onOverlap(SpriteKind.npc, SpriteKind.Food, function (sprite, otherSprite) {
     for (let index = 0; index < 4; index++) {
@@ -446,9 +446,50 @@ function doSomething2 (mySprite: Sprite, mySprite2: Sprite) {
         spetate2 = 1
     }
 }
+function doSomething6 () {
+    list1 = [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 1 1 1 1 1 . . . . . . 
+        . . . . . 1 f 1 f 1 . . . . . . 
+        . . . . . 1 f 1 f 1 . . . . . . 
+        . . . . . 1 1 1 1 1 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 1 1 1 1 1 . . . . . . 
+        . . . . . 1 f 1 f 1 . . . . . . 
+        . . . . . 1 f 1 f 1 . . . . . . 
+        . . . . . 1 1 1 1 1 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `]
+}
 function doSomething4 () {
     _2 = randint(0, 16)
     _1 = randint(0, 16)
+    while (picture.getPixel(_1, _2) == 0) {
+        _2 = randint(0, 16)
+        _1 = randint(0, 16)
+    }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     controller.moveSprite(sprite, 0, 0)
@@ -470,9 +511,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let list55: Image[] = []
 let mySprite2: Sprite = null
+let spetate = false
 let npc12: string[] = []
 let npclist: Image[] = []
-let spetate = false
 let _1 = 0
 let _2 = 0
 let spetate2 = 0
@@ -522,9 +563,26 @@ mySprite = sprites.create(img`
 sprites.setDataBoolean(mySprite, "q", false)
 picture = image.create(0, 0)
 picture = image.create(16, 16)
-for (let index = 0; index < randint(1, 16); index++) {
-    picture.drawLine(randint(0, 16), randint(0, 16), randint(0, 16), randint(0, 16), 15)
-}
+sprites.setDataSprite(mySprite, "p2", sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 3 . . . . . . . . 
+    . . . . . . . . 3 . . . . . . . 
+    . . . . . . . . 3 3 . . . . . . 
+    . . . . . . . . 3 . . . . . . . 
+    . . . . . . . . 3 . . . . . . . 
+    . 3 3 3 3 . 3 3 3 . . . . . . . 
+    . . . . . 3 . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player))
+sprites.readDataSprite(mySprite, "p2").setFlag(SpriteFlag.Ghost, true)
+sprites.readDataSprite(mySprite, "p2").setFlag(SpriteFlag.Invisible, true)
 list1 = [
 img`
     . . . . . . . . . . . . . . . . 
@@ -1264,7 +1322,8 @@ img`
     . . . b b b b b b b . . . . . . 
     . . . . b . . . b . . . . . . . 
     `,
-picture
+picture,
+sprites.readDataSprite(mySprite, "p2").image
 ]
 text_list = [
 "CatMaster",
@@ -1405,11 +1464,161 @@ tiles.loadMap(tiles.createMap(tiles.createTilemap(hex`10001000030303030303030303
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile23], TileScale.Sixteen)))
+    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile13], TileScale.Sixteen)))
 controller.moveSprite(mySprite)
 look = 0
 rond = 1
 let sprite_list = sprites.allOfKind(SpriteKind.npc)
+forever(function () {
+    for (let value7 of sprites.allOfKind(SpriteKind.npc)) {
+        if (value7.tileKindAt(TileDirection.Center, myTiles.tile7)) {
+            value7.destroy()
+            info.changeScoreBy(1)
+            npclist.push(value7.image)
+            npc12.push(sprites.readDataString(value7, "name"))
+            quofid += 1
+            if (quofid == count - 10) {
+                if (sprites.readDataBoolean(mySprite, "q")) {
+                    tiles.destroySpritesOfKind(SpriteKind.Food)
+                    tiles.destroySpritesOfKind(SpriteKind.npc)
+                    spetate = false
+                    sprites.setDataBoolean(mySprite, "q", false)
+                    mySprite.setFlag(SpriteFlag.Ghost, false)
+                    mySprite.setFlag(SpriteFlag.Invisible, false)
+                    count = count - 10
+                    controller.moveSprite(mySprite, 100, 0)
+                    mySprite.ay = 100
+                    if (count == 10) {
+                        leve2 = randint(8, 9)
+                        level = list2[leve2]
+                        tiles.loadMap(level)
+                    } else {
+                        leve2 = randint(_66, gg)
+                        level = list2[leve2]
+                        tiles.loadMap(level)
+                    }
+                    tiles.placeOnRandomTile(mySprite, myTiles.tile6)
+                    tiles.placeOnRandomTile(mySprite, myTiles.tile13)
+                    info.setScore(0)
+                    for (let value8 of npclist) {
+                        quofid = 0
+                        info.setScore(0)
+                        npc2 = sprites.create(value8, SpriteKind.npc)
+                        sprites.setDataString(npc2, "name", npc12.shift())
+                        if (Math.percentChance(50)) {
+                            sprites.setDataNumber(npc2, "r", 1)
+                        } else {
+                            sprites.setDataNumber(npc2, "r", -1)
+                        }
+                        npc2.vx = randint(45, 75)
+                        tiles.placeOnRandomTile(npc2, myTiles.tile6)
+                    }
+                    npclist = []
+                    npc12 = []
+                    scene.cameraFollowSprite(mySprite)
+                } else {
+                    game.over(false)
+                    scene.setBackgroundColor(8)
+                }
+            }
+        }
+    }
+})
+forever(function () {
+    if (mySprite.image.equals(picture)) {
+        picture = image.create(16, 16)
+        picture = img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 8 8 8 8 8 . . . . . . 
+            . . . . 8 8 8 8 8 8 8 . . . . . 
+            . . . . 8 1 1 1 1 1 8 . . . . . 
+            . . . . 8 1 f 1 f 1 8 . . . . . 
+            . . . . 8 1 f 1 f 1 8 . . . . . 
+            . . . . 8 1 1 1 1 1 8 . . . . . 
+            . . . 8 8 8 8 8 8 8 8 8 . . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . . . 8 8 8 8 8 8 8 . . . . . 
+            . . . . 8 8 8 8 8 8 8 . . . . . 
+            . . . . . 8 . . . 8 . . . . . . 
+            `
+        for (let index = 0; index < 200; index++) {
+            doSomething4()
+            picture.drawLine(_1, _2, _1, _2, 2)
+            doSomething5()
+            mySprite.setImage(picture)
+            doSomething4()
+            pause(1)
+            picture.drawLine(_1, _2, _1, _2, 9)
+            doSomething4()
+            mySprite.setImage(picture)
+            pause(1)
+            doSomething4()
+            picture.drawLine(_1, _2, _1, _2, 5)
+            doSomething5()
+            mySprite.setImage(picture)
+            doSomething4()
+            pause(1)
+            picture.drawLine(_1, _2, _1, _2, 3)
+            doSomething5()
+            mySprite.setImage(picture)
+            doSomething4()
+            pause(1)
+            picture.drawLine(_1, _2, _1, _2, 10)
+            doSomething5()
+            mySprite.setImage(picture)
+            doSomething4()
+            picture.drawLine(_1, _2, _1, _2, 4)
+            pause(1)
+            doSomething5()
+            mySprite.setImage(picture)
+        }
+        mySprite.setImage(picture)
+    }
+    if (mySprite.image.equals(sprites.readDataSprite(mySprite, "p2").image)) {
+        picture = image.create(16, 16)
+        picture = img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 8 8 8 8 8 . . . . . . 
+            . . . . 8 8 8 8 8 8 8 . . . . . 
+            . . . . 8 1 1 1 1 1 8 . . . . . 
+            . . . . 8 1 f 1 f 1 8 . . . . . 
+            . . . . 8 1 f 1 f 1 8 . . . . . 
+            . . . . 8 1 1 1 1 1 8 . . . . . 
+            . . . 8 8 8 8 8 8 8 8 8 . . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
+            . . . . 8 8 8 8 8 8 8 . . . . . 
+            . . . . 8 8 8 8 8 8 8 . . . . . 
+            . . . . . 8 . . . 8 . . . . . . 
+            `
+        for (let index = 0; index < 400; index++) {
+            doSomething4()
+            picture.drawLine(_1, _2, _1, _2, 7)
+            doSomething5()
+            mySprite.setImage(picture)
+            doSomething4()
+            pause(1)
+            picture.drawLine(_1, _2, _1, _2, 6)
+            doSomething4()
+            mySprite.setImage(picture)
+            pause(1)
+            doSomething4()
+            picture.drawLine(_1, _2, _1, _2, 14)
+            doSomething5()
+            mySprite.setImage(picture)
+            doSomething4()
+            pause(1)
+        }
+        mySprite.setImage(picture)
+    }
+})
 forever(function () {
     list2 = [
     tiles.createMap(tiles.createTilemap(hex`64000b000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000002000002000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010101000002000202000200000000000000000000000000000000000000020200000000020000020000000000040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020000000002000000000000000000000000000000000000020002000000000200000000000000000400000000000000000000000000000000010101000001010100000000000000000000000000000000000000000101010100010101000000000000000200000000020000000000000000000000000000000000020000010102020202000000000000000004030000000000000000000000050000000002000000000200000000000000000000000101010100000000000000000000000000000000000000000002020202020200000000000000000000000000000000000000000002000000000000020000000000040101010101010101010000010101000000020000000000000001010101010101000002020202000101010000000000000000000000000000000000020000000002000000000000000000000000000000010000000000020000000000000100000000000402020102020202020200000202020000000200000000000000000000000000000002020202020002020200000000000000000000000000000000000200000000020000000002020202020202020200020000000000000000000000000200000000000004020202020202020202000202020200000002000000000200000000000000000002020202020200020202000000000000000000000000000002000002000002000002020202000000000000000000000200000000000000000000000002000000000000040202020202020202020002020202000000000000000002000002020202020202020202020202020202020000000000000000000000000000020000020000020000000000000000000000000000000002000002020202020202020202010000000000000202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020200000000000200000000000000020202020202020202020202020202020202020202020202020202020200`, img`
@@ -1847,61 +2056,6 @@ forever(function () {
     }
 })
 forever(function () {
-    for (let value7 of sprites.allOfKind(SpriteKind.npc)) {
-        if (value7.tileKindAt(TileDirection.Center, myTiles.tile7)) {
-            value7.destroy()
-            info.changeScoreBy(1)
-            npclist.push(value7.image)
-            npc12.push(sprites.readDataString(value7, "name"))
-            quofid += 1
-            if (quofid == count - 10) {
-                if (sprites.readDataBoolean(mySprite, "q")) {
-                    tiles.destroySpritesOfKind(SpriteKind.Food)
-                    tiles.destroySpritesOfKind(SpriteKind.npc)
-                    spetate = false
-                    sprites.setDataBoolean(mySprite, "q", false)
-                    mySprite.setFlag(SpriteFlag.Ghost, false)
-                    mySprite.setFlag(SpriteFlag.Invisible, false)
-                    count = count - 10
-                    controller.moveSprite(mySprite, 100, 0)
-                    mySprite.ay = 100
-                    if (count == 10) {
-                        leve2 = randint(8, 9)
-                        level = list2[leve2]
-                        tiles.loadMap(level)
-                    } else {
-                        leve2 = randint(_66, gg)
-                        level = list2[leve2]
-                        tiles.loadMap(level)
-                    }
-                    tiles.placeOnRandomTile(mySprite, myTiles.tile6)
-                    tiles.placeOnRandomTile(mySprite, myTiles.tile13)
-                    info.setScore(0)
-                    for (let value8 of npclist) {
-                        quofid = 0
-                        info.setScore(0)
-                        npc2 = sprites.create(value8, SpriteKind.npc)
-                        sprites.setDataString(npc2, "name", npc12.shift())
-                        if (Math.percentChance(50)) {
-                            sprites.setDataNumber(npc2, "r", 1)
-                        } else {
-                            sprites.setDataNumber(npc2, "r", -1)
-                        }
-                        npc2.vx = randint(45, 75)
-                        tiles.placeOnRandomTile(npc2, myTiles.tile6)
-                    }
-                    npclist = []
-                    npc12 = []
-                    scene.cameraFollowSprite(mySprite)
-                } else {
-                    game.over(false)
-                    scene.setBackgroundColor(8)
-                }
-            }
-        }
-    }
-})
-forever(function () {
     if (spetate2 == 1 && (!(sprite_list.length <= 0) && controller.A.isPressed())) {
         scene.cameraFollowSprite(sprite_list.pop())
         pause(200)
@@ -1933,19 +2087,6 @@ forever(function () {
     }
 })
 forever(function () {
-    pause(2000)
-    for (let value11 of tiles.getTilesByType(myTiles.tile15)) {
-        mySprite2 = sprites.create(myTiles.tile15, SpriteKind.Enemy)
-        mySprite2.vx += -60
-        tiles.placeOnTile(mySprite2, value11)
-    }
-    for (let value12 of tiles.getTilesByType(myTiles.tile14)) {
-        mySprite2 = sprites.create(myTiles.tile14, SpriteKind.Enemy)
-        mySprite2.vx += -60
-        tiles.placeOnTile(mySprite2, value12)
-    }
-})
-forever(function () {
     for (let value13 of sprites.allOfKind(SpriteKind.npc)) {
         if (value13.tileKindAt(TileDirection.Center, myTiles.tile24)) {
             scene.cameraFollowSprite(value13)
@@ -1956,117 +2097,16 @@ forever(function () {
     }
 })
 forever(function () {
-    if (mySprite.image.equals(picture)) {
-        picture = image.create(16, 16)
-        picture = img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 1 1 1 1 1 . . . . . . 
-            . . . . . 1 f 1 f 1 . . . . . . 
-            . . . . . 1 f 1 f 1 . . . . . . 
-            . . . . . 1 1 1 1 1 . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `
-        for (let index = 0; index < 200; index++) {
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 2)
-            doSomething5()
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 9)
-            doSomething4()
-            mySprite.setImage(picture)
-            pause(1)
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 5)
-            doSomething5()
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 3)
-            doSomething5()
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 10)
-            doSomething5()
-            mySprite.setImage(picture)
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 4)
-            pause(1)
-            doSomething5()
-            mySprite.setImage(picture)
-        }
-        mySprite.setImage(picture)
+    pause(2000)
+    for (let value11 of tiles.getTilesByType(myTiles.tile15)) {
+        mySprite2 = sprites.create(myTiles.tile15, SpriteKind.Enemy)
+        mySprite2.vx += -60
+        tiles.placeOnTile(mySprite2, value11)
     }
-})
-game.onUpdateInterval(500, function () {
-    if (leve2 == 1) {
-        for (let value14 of sprites.allOfKind(SpriteKind.npc)) {
-            if (Math.percentChance(50)) {
-                if (sprites.readDataNumber(value14, "r") == 1) {
-                    value14.vx = randint(90, 130)
-                    value14.ay = 100
-                } else {
-                    value14.vx = randint(-90, -130)
-                    value14.ay = 100
-                }
-            } else {
-                if (Math.percentChance(50)) {
-                    sprites.setDataNumber(value14, "r", 2)
-                } else {
-                    sprites.setDataNumber(value14, "r", 1)
-                }
-            }
-        }
-    } else if (leve2 == 2) {
-        for (let value15 of sprites.allOfKind(SpriteKind.npc)) {
-            if (sprites.readDataNumber(value15, "r") == 2) {
-                value15.vx = randint(90, 130)
-                value15.ay = 100
-            } else {
-                value15.vx = randint(-90, -130)
-                value15.ay = 100
-            }
-            if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value15), CollisionDirection.Left), CollisionDirection.Bottom), myTiles.transparency16)) {
-                sprites.setDataNumber(value15, "r", 1)
-            } else if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value15), CollisionDirection.Right), CollisionDirection.Bottom), myTiles.transparency16)) {
-                sprites.setDataNumber(value15, "r", -1)
-            }
-        }
-    } else if (leve2 == 5) {
-        for (let value16 of sprites.allOfKind(SpriteKind.npc)) {
-            if (Math.percentChance(50)) {
-                if (sprites.readDataNumber(value16, "r") == 1) {
-                    value16.vx = randint(90, 130)
-                    value16.ay = 100
-                } else {
-                    value16.vx = randint(-90, -130)
-                    value16.ay = 100
-                }
-            } else {
-                if (Math.percentChance(50)) {
-                    sprites.setDataNumber(value16, "r", 2)
-                } else {
-                    sprites.setDataNumber(value16, "r", 1)
-                }
-            }
-        }
-    } else {
-        for (let value17 of sprites.allOfKind(SpriteKind.npc)) {
-            value17.vx = randint(90, 130)
-            value17.ay = 100
-        }
+    for (let value12 of tiles.getTilesByType(myTiles.tile14)) {
+        mySprite2 = sprites.create(myTiles.tile14, SpriteKind.Enemy)
+        mySprite2.vx += -60
+        tiles.placeOnTile(mySprite2, value12)
     }
 })
 game.onUpdateInterval(500, function () {
@@ -2173,5 +2213,61 @@ game.onUpdateInterval(500, function () {
     }
 })
 game.onUpdateInterval(500, function () {
-	
+    if (leve2 == 1) {
+        for (let value14 of sprites.allOfKind(SpriteKind.npc)) {
+            if (Math.percentChance(50)) {
+                if (sprites.readDataNumber(value14, "r") == 1) {
+                    value14.vx = randint(90, 130)
+                    value14.ay = 100
+                } else {
+                    value14.vx = randint(-90, -130)
+                    value14.ay = 100
+                }
+            } else {
+                if (Math.percentChance(50)) {
+                    sprites.setDataNumber(value14, "r", 2)
+                } else {
+                    sprites.setDataNumber(value14, "r", 1)
+                }
+            }
+        }
+    } else if (leve2 == 2) {
+        for (let value15 of sprites.allOfKind(SpriteKind.npc)) {
+            if (sprites.readDataNumber(value15, "r") == 2) {
+                value15.vx = randint(90, 130)
+                value15.ay = 100
+            } else {
+                value15.vx = randint(-90, -130)
+                value15.ay = 100
+            }
+            if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value15), CollisionDirection.Left), CollisionDirection.Bottom), myTiles.transparency16)) {
+                sprites.setDataNumber(value15, "r", 1)
+            } else if (tiles.tileIs(tiles.locationInDirection(tiles.locationInDirection(tiles.locationOfSprite(value15), CollisionDirection.Right), CollisionDirection.Bottom), myTiles.transparency16)) {
+                sprites.setDataNumber(value15, "r", -1)
+            }
+        }
+    } else if (leve2 == 5) {
+        for (let value16 of sprites.allOfKind(SpriteKind.npc)) {
+            if (Math.percentChance(50)) {
+                if (sprites.readDataNumber(value16, "r") == 1) {
+                    value16.vx = randint(90, 130)
+                    value16.ay = 100
+                } else {
+                    value16.vx = randint(-90, -130)
+                    value16.ay = 100
+                }
+            } else {
+                if (Math.percentChance(50)) {
+                    sprites.setDataNumber(value16, "r", 2)
+                } else {
+                    sprites.setDataNumber(value16, "r", 1)
+                }
+            }
+        }
+    } else {
+        for (let value17 of sprites.allOfKind(SpriteKind.npc)) {
+            value17.vx = randint(90, 130)
+            value17.ay = 100
+        }
+    }
 })
