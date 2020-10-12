@@ -169,6 +169,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             tiles.placeOnRandomTile(npc2, myTiles.tile6)
             sprites.setDataBoolean(mySprite, "q", false)
         }
+        tiles.destroySpritesOfKind(SpriteKind.Food)
         count = 50
     }
     if (mySprite.isHittingTile(CollisionDirection.Bottom)) {
@@ -1446,28 +1447,30 @@ tiles.createMap(tiles.createTilemap(hex`1000100000000000000000000000000000000000
     `, [myTiles.transparency16], TileScale.Sixteen))
 ]
 player_quofid += 1
-tiles.loadMap(tiles.createMap(tiles.createTilemap(hex`1000100003030303030303030303030303030303030303030302010303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303`, img`
+tiles.loadMap(tiles.createMap(tiles.createTilemap(hex`1000100007040303030303030303030404040406070403030302010403030304040404040704030303030304030303040404040407040303030303040303030304040404070403030505050303050505040404040704030305030304030303050404040407040303050303040303030504040404070403030503030403030305040404060704030303030304030303030404040607040303030303030303030304040404070403030503030303030305040404040704030305030303030303050404040407040404050505030305050504040404070404040404040404040404040404040704040404040404040404040404040407040404040404040404040404040406`, img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
+    . . . . 2 2 2 . . 2 2 2 . . . . 
+    . . . . 2 . . . . . . 2 . . . . 
+    . . . . 2 . . . . . . 2 . . . . 
+    . . . . 2 . . . . . . 2 . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . 2 . . . . . . 2 . . . . 
+    . . . . 2 . . . . . . 2 . . . . 
+    . . . . 2 2 2 . . 2 2 2 . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile13], TileScale.Sixteen)))
+    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile13,myTiles.tile25,myTiles.tile3,myTiles.tile12,myTiles.tile20], TileScale.Sixteen)))
+scene.setBackgroundColor(8)
 controller.moveSprite(mySprite)
 look = 0
 rond = 1
 let sprite_list = sprites.allOfKind(SpriteKind.npc)
+scene.cameraFollowSprite(mySprite)
 forever(function () {
     for (let value7 of sprites.allOfKind(SpriteKind.npc)) {
         if (value7.tileKindAt(TileDirection.Center, myTiles.tile7)) {
