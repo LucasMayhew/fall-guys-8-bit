@@ -353,7 +353,7 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile24, function (sprite, locatio
     blockSettings.writeNumber("list", 1 + blockSettings.readNumber("list"))
     game.over(true)
 })
-function doSomething5 () {
+function doSomething5 (mySprite: Sprite) {
     picture.setPixel(5, 4, 1)
     picture.setPixel(6, 4, 1)
     picture.setPixel(7, 4, 1)
@@ -1322,8 +1322,7 @@ img`
     . . . b b b b b b b . . . . . . 
     . . . . b . . . b . . . . . . . 
     `,
-picture,
-sprites.readDataSprite(mySprite, "p2").image
+picture
 ]
 text_list = [
 "CatMaster",
@@ -1547,8 +1546,8 @@ forever(function () {
             `
         for (let index = 0; index < 200; index++) {
             doSomething4()
+            doSomething5(mySprite)
             picture.drawLine(_1, _2, _1, _2, 2)
-            doSomething5()
             mySprite.setImage(picture)
             doSomething4()
             pause(1)
@@ -1558,65 +1557,23 @@ forever(function () {
             pause(1)
             doSomething4()
             picture.drawLine(_1, _2, _1, _2, 5)
-            doSomething5()
+            doSomething5(mySprite)
             mySprite.setImage(picture)
             doSomething4()
             pause(1)
             picture.drawLine(_1, _2, _1, _2, 3)
-            doSomething5()
+            doSomething5(mySprite)
             mySprite.setImage(picture)
             doSomething4()
             pause(1)
             picture.drawLine(_1, _2, _1, _2, 10)
-            doSomething5()
+            doSomething5(mySprite)
             mySprite.setImage(picture)
             doSomething4()
             picture.drawLine(_1, _2, _1, _2, 4)
             pause(1)
-            doSomething5()
-            mySprite.setImage(picture)
+            doSomething5(mySprite)
         }
-        mySprite.setImage(picture)
-    }
-    if (mySprite.image.equals(sprites.readDataSprite(mySprite, "p2").image)) {
-        picture = image.create(16, 16)
-        picture = img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 8 8 8 8 8 . . . . . . 
-            . . . . 8 8 8 8 8 8 8 . . . . . 
-            . . . . 8 1 1 1 1 1 8 . . . . . 
-            . . . . 8 1 f 1 f 1 8 . . . . . 
-            . . . . 8 1 f 1 f 1 8 . . . . . 
-            . . . . 8 1 1 1 1 1 8 . . . . . 
-            . . . 8 8 8 8 8 8 8 8 8 . . . . 
-            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
-            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
-            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
-            . . 8 . 8 8 8 8 8 8 8 . 8 . . . 
-            . . . . 8 8 8 8 8 8 8 . . . . . 
-            . . . . 8 8 8 8 8 8 8 . . . . . 
-            . . . . . 8 . . . 8 . . . . . . 
-            `
-        for (let index = 0; index < 400; index++) {
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 7)
-            doSomething5()
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 6)
-            doSomething4()
-            mySprite.setImage(picture)
-            pause(1)
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 14)
-            doSomething5()
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-        }
-        mySprite.setImage(picture)
     }
 })
 forever(function () {
