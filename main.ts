@@ -133,7 +133,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.tileKindAt(TileDirection.Center, myTiles.tile2)) {
         controller.moveSprite(mySprite, 0, 0)
         mySprite.ay = 100
+        mySprite.setFlag(SpriteFlag.Ghost, true)
         pause(1000)
+        mySprite.setFlag(SpriteFlag.Ghost, false)
         leve2 = randint(_66, gg)
         level = list2[leve2]
         tiles.loadMap(level)
@@ -1447,30 +1449,33 @@ tiles.createMap(tiles.createTilemap(hex`1000100000000000000000000000000000000000
     `, [myTiles.transparency16], TileScale.Sixteen))
 ]
 player_quofid += 1
-tiles.loadMap(tiles.createMap(tiles.createTilemap(hex`1000100007040303030303030303030404040406070403030302010403030304040404040704030303030304030303040404040407040303030303040303030304040404070403030505050303050505040404040704030305030304030303050404040407040303050303040303030504040404070403030503030403030305040404060704030303030304030303030404040607040303030303030303030304040404070403030503030303030305040404040704030305030303030303050404040407040404050505030305050504040404070404040404040404040404040404040704040404040404040404040404040407040404040404040404040404040406`, img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . 2 2 2 . . 2 2 2 . . . . 
-    . . . . 2 . . . . . . 2 . . . . 
-    . . . . 2 . . . . . . 2 . . . . 
-    . . . . 2 . . . . . . 2 . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . 2 . . . . . . 2 . . . . 
-    . . . . 2 . . . . . . 2 . . . . 
-    . . . . 2 2 2 . . 2 2 2 . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile13,myTiles.tile25,myTiles.tile3,myTiles.tile12,myTiles.tile20], TileScale.Sixteen)))
+tiles.loadMap(tiles.createMap(tiles.createTilemap(hex`1000100006060606060606060606060606060606060403030302010403030304040404060604030303030304030303040404040606040303030303040303030304040406060403030505050303050505040404060604030305030304030303050404040606040303050303040303030504040406060505050503030403030305040403060604030303030304030303050404040606040303030303030303030504040406060403030503030303030305040404060604030305030303030303050404040606040404050505030305050504040406060304040404040404040405040404060603040404040404040404050404040606060606060606060606060606060606`, img`
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+    2 . . . . . . . . . . . . . . 2 
+    2 . . . . . . . . . . . . . . 2 
+    2 . . . . . . . . . . . . . . 2 
+    2 . . . 2 2 2 . . 2 2 2 . . . 2 
+    2 . . . 2 . . . . . . 2 . . . 2 
+    2 . . . 2 . . . . . . 2 . . . 2 
+    2 2 2 2 2 . . . . . . 2 . . . 2 
+    2 . . . . . . . . . . 2 . . . 2 
+    2 . . . . . . . . . . 2 . . . 2 
+    2 . . . 2 . . . . . . 2 . . . 2 
+    2 . . . 2 . . . . . . 2 . . . 2 
+    2 . . . 2 2 2 . . 2 2 2 . . . 2 
+    2 . . . . . . . . . . 2 . . . 2 
+    2 . . . . . . . . . . 2 . . . 2 
+    2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
+    `, [myTiles.transparency16,myTiles.tile1,myTiles.tile2,myTiles.tile13,myTiles.tile25,myTiles.tile3,myTiles.tile5], TileScale.Sixteen)))
 scene.setBackgroundColor(8)
 controller.moveSprite(mySprite)
 look = 0
 rond = 1
 let sprite_list = sprites.allOfKind(SpriteKind.npc)
 scene.cameraFollowSprite(mySprite)
+forever(function () {
+    music.playMelody("E B C5 A B G A F ", 380)
+})
 forever(function () {
     for (let value7 of sprites.allOfKind(SpriteKind.npc)) {
         if (value7.tileKindAt(TileDirection.Center, myTiles.tile7)) {
@@ -1527,7 +1532,7 @@ forever(function () {
     }
 })
 forever(function () {
-    if (mySprite.image.equals(picture)) {
+    if (look == 41) {
         picture = image.create(16, 16)
         picture = img`
             . . . . . . . . . . . . . . . . 
@@ -1548,34 +1553,32 @@ forever(function () {
             . . . . . 8 . . . 8 . . . . . . 
             `
         for (let index = 0; index < 200; index++) {
-            doSomething4()
-            doSomething5(mySprite)
-            picture.drawLine(_1, _2, _1, _2, 2)
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 9)
-            doSomething4()
-            mySprite.setImage(picture)
-            pause(1)
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 5)
-            doSomething5(mySprite)
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 3)
-            doSomething5(mySprite)
-            mySprite.setImage(picture)
-            doSomething4()
-            pause(1)
-            picture.drawLine(_1, _2, _1, _2, 10)
-            doSomething5(mySprite)
-            mySprite.setImage(picture)
-            doSomething4()
-            picture.drawLine(_1, _2, _1, _2, 4)
-            pause(1)
-            doSomething5(mySprite)
+            if (look == 41) {
+                doSomething4()
+                doSomething5(mySprite)
+                picture.drawLine(_1, _2, _1, _2, 2)
+                mySprite.setImage(picture)
+                doSomething4()
+                picture.drawLine(_1, _2, _1, _2, 9)
+                doSomething4()
+                mySprite.setImage(picture)
+                doSomething4()
+                picture.drawLine(_1, _2, _1, _2, 5)
+                doSomething5(mySprite)
+                mySprite.setImage(picture)
+                doSomething4()
+                picture.drawLine(_1, _2, _1, _2, 3)
+                doSomething5(mySprite)
+                mySprite.setImage(picture)
+                doSomething4()
+                picture.drawLine(_1, _2, _1, _2, 10)
+                doSomething5(mySprite)
+                mySprite.setImage(picture)
+                doSomething4()
+                picture.drawLine(_1, _2, _1, _2, 4)
+                doSomething5(mySprite)
+            }
+            pause(100)
         }
     }
 })
