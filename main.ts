@@ -189,7 +189,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             "breetoGuy",
             "KittyGirl1",
             "Gid436",
-            "Batty"
+            "Batty",
+            "cat323",
+            "Luke174"
             ]
             for (let index = 0; index < 1000; index++) {
                 text_list.push("" + randint(0, 9) + randint(0, 9) + randint(0, 9) + randint(0, 9) + randint(0, 9))
@@ -1658,7 +1660,8 @@ text_list = [
 "breetoGuy",
 "KittyGirl1",
 "Gid436",
-"Batty"
+"Batty",
+"Cat222314"
 ]
 for (let index = 0; index < 1000; index++) {
     text_list.push("" + randint(0, 9) + randint(0, 9) + randint(0, 9) + randint(0, 9) + randint(0, 9))
