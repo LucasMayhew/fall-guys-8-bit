@@ -2068,6 +2068,6 @@ b b b 4 1 1 1 1 1 4 . b b b b b
 . . . 3 3 3 3 3 3 3 4 e 4 e 4 . 
 . . . . 4 . . . 4 . . . . . . . 
 . . b b b b b b b b b . . . . . 
-. . 8 8 8 8 8 8 8 8 8 . . . . . 
-. . 8 8 8 8 8 8 8 8 8 . . . . . 
+. . . . . . 8 . . . . . . . . . 
+. . . . . . 8 . . . . . . . . . 
 `</field></block></value></block></value><next><block type="pxt_controls_for_of" id="b!@HD=ZdYxNo{u,Em@R^"><value name="VAR"><shadow type="variables_get_reporter" id="c735b3%s4JHp*jFM#n/Q"><field name="VAR" id="K_X;n*ydOXOhO%KNlVEb">value</field></shadow></value><value name="LIST"><shadow type="variables_get" id=":F5n;Qi:A)Sy#acBWSPU"><field name="VAR" id="b/m5$O4`-uxZ-kgkf_fz">Lucas</field></shadow></value><statement name="DO"><block type="array_push" id="62-=$.Tc%ww9S0#;d=uj"><value name="list"><block type="variables_get" id="K+7U*.O[usGVdLkDILMs"><field name="VAR" id="o84C70kqtB;x`f|59eSW">list1</field></block></value><value name="value"><block type="variables_get" id="t+nC(d?U{nJxc|(}3=c%"><field name="VAR" id="K_X;n*ydOXOhO%KNlVEb">value</field></block></value><next><block type="variables_change" id="Bzu(qazNuBR~*K,_YSV%"><field name="VAR" id="7W_=eXS%;)i_^hwa5$F[">l</field><value name="VALUE"><shadow type="math_number" id="OCO3ynxk@:HZHp3]1v#t"><field name="NUM">1</field></shadow></value></block></next></block></statement></block></next></block></statement></block></xml>
