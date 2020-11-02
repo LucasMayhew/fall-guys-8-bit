@@ -459,7 +459,41 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile10, function (sprite, locatio
     })
 })
 function lucas () {
-    Lucas = []
+    Lucas = [img`
+        . . . f f f f f f f . . . . . . 
+        . . f f f f f f f f f . . . . . 
+        . f f f f f f f f f f f . . . . 
+        . . . 2 2 2 2 2 2 2 . . . . . . 
+        . . 2 3 1 1 1 1 1 3 . . . . . . 
+        . . 2 3 1 f 1 f 1 3 . . . . . . 
+        . . . 3 1 f 1 f 1 3 . . . . . . 
+        . . . 3 1 1 1 1 1 3 . . . . . . 
+        . . e f e e e e e e e . . . . . 
+        . e . f f e e e e e . e . . . . 
+        . e . e f f e e e e . e . . . . 
+        . e . e e f f e e e . e . . . . 
+        . b . e e e f f e e . 3 . . . . 
+        b . . e e e e f f f . . . . . . 
+        . b . e e e e e e e . . . . . . 
+        . . . . e . . . b . . . . . . . 
+        `, img`
+        . . . f f 7 f 7 f f . . . . . . 
+        . . f f 7 f 7 f 7 f f . . . . . 
+        . f f f f 7 f 7 f f f f . . . . 
+        . . . 2 2 2 2 2 2 2 . . . . . . 
+        . . 2 3 1 1 1 1 1 3 . . . . . . 
+        . . 2 3 1 f 1 f 1 3 . . . . . . 
+        . . . 3 1 f 1 f 1 3 . . . . . . 
+        . . . 3 1 1 1 1 1 3 . . . . . . 
+        . . e f e e e e e e e . . . . . 
+        . e . f f e e e e e . e . . . . 
+        . e . e f f e e e e . e . . . . 
+        . e . e e f f e e e . e . . . . 
+        . 7 . e e e f f e e . 3 . . . . 
+        7 . . e e e e f f f . . . . . . 
+        . 7 . e e e e e e e . . . . . . 
+        . . . . e . . . 7 . . . . . . . 
+        `]
     for (let value of Lucas) {
         list1.push(value)
         l += 1
